@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="dynamic-title"></title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="" id="dynamic-favicon" sizes="32x32">
+    <link rel="apple-touch-icon-precomposed" href="" id="dynamic-favicon">
+
+    <!-- Styles -->
+    <style>
+        body { margin: 0; }
+        .kore-chat-window-main-section {
+            position: fixed;
+            height: calc(100% - 75px);
+            border-radius: 4px;
+            right: 25px;
+            bottom: 5px;
+        }
+        .belcrop-body-img-section img {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="banner_template.css">
+    <link rel="stylesheet" href="ssoTemplate_custom.css">
+    <link rel="stylesheet" href="checklist-template.css">
+    <link rel="stylesheet" href="worknote-template.css">
+
+    <!-- Required JS Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@koredev/kore-web-sdk@11.4.1-rc.bbb3292/dist/umd/kore-web-sdk-umd-chat.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/agent-desktop-umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/webapi-stt-plugin-umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/browser-tts-umd-plugin-umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/multi-file-upload.js"></script>
+
+</head>
+<body>
+
+<!-- Background Image -->
+<div class="belcrop-body-img-section">
+    <img src="" id="bg_image">
+</div>
+
+<!-- Hidden Inputs to Store Dynamic Data -->
+<input type="hidden" id="botname">
+<input type="hidden" id="botid">
+<input type="hidden" id="clientid">
+<input type="hidden" id="clientsecret">
+<input type="hidden" id="enable_speaker">
+<input type="hidden" id="enable_microphone">
+<input type="hidden" id="header_color">
+<input type="hidden" id="chat_back_img">
+<input type="hidden" id="top_left_icon">
+<input type="hidden" id="bot_lang">
+
+<script>
+// Configuration
+const devURL = "http://localhost:5000/backend";
+const prodURL = "https://barefoot-dev.kore.ai/backend";
+const environmentURL = devURL;  // Change to prodURL for production
+
+// Fetching API Data
+async function fetchAPIData(sdkID) {
+    try {
+        const response = await fetch(`${environmentURL}/api/webSDK/${sdkID}`);
+        if (!response.ok) throw new Error('Failed to fetch data from the API');
+        const jsonData = await response.json();
+        return jsonData[0];
+    } catch (error) {
+        console.error('Error fetching API data:', error);
+    }
+}
+
+// Geolocation Storage
+function storeUserLocation() {
+    navigator.geolocation.getCurrentPosition(location => {
+        localStorage.setItem("lat", location.coords.latitude);
+        localStorage.setItem("long", location.coords.longitude);
+    });
+}
+
+// Generate UUID
+function generateUUID() {
+    let dt = new Date().getTime();
+    if (window.performance && typeof window.performance.now === "function") {
+        dt += performance.now();  // use high-precision timer if available
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = (dt + Math.random() * 16) % 16 | 0;
+        dt = Math.floor(dt / 16);
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+
+// Main Function
+async function initializeChat() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sdkID = urlParams.get('id');
+    const customDataFromParams = urlParams.get('customData');
+
+    const data = await fetchAPIData(sdkID);
+    if (!data) return; // Exit if no data
+
+    storeUserLocation();
+
+
+document.documentElement.style.setProperty('--color', data.header_color);
+document.documentElement.style.setProperty('--img', `url('${data.top_left_icon}')`);
+document.documentElement.style.setProperty('--chatimg', `url('${data.chat_back_img}')`);
+
+    // Set UI elements dynamically from the data
+    document.getElementById("dynamic-title").innerText = data.botname;
+    document.getElementById("bg_image").src = `https://demo.kore.ai/demo/bot/bg_images/${data.bg_image}`;
+    document.getElementById("dynamic-favicon").href = data.top_left_icon;
+
+    // Setting hidden input values
+    document.getElementById("botname").value = data.botname;
+    document.getElementById("botid").value = data.botid;
+    document.getElementById("clientid").value = data.clientid;
+    document.getElementById("clientsecret").value = data.clientsecret;
+    document.getElementById("enable_speaker").value = data.enableSpeaker;
+    document.getElementById("enable_microphone").value = data.enableMicrophone;
+    document.getElementById("header_color").value = data.headerColor;
+    document.getElementById("chat_back_img").value = data.chatBackImg;
+    document.getElementById("top_left_icon").value = data.topLeftIcon;
+    document.getElementById("bot_lang").value = data.botLang;
+
+    // Kore.ai SDK Configurations
+    const chatConfig = KoreChatSDK.chatConfig;
+    const chatWindow = new KoreChatSDK.chatWindow();
+    const botOptions = chatConfig.botOptions;
+
+    // Bot Info Configuration
+    botOptions.koreAPIUrl = data.koreAPIUrl || "https://bots.kore.ai/api/";
+    botOptions.JWTUrl = "https://mk2r2rmj21.execute-api.us-east-1.amazonaws.com/dev/users/sts";
+    botOptions.botInfo = {
+        name: data.botname,
+        _id: data.botid,
+        customData: {
+            customData: data.interactiveLanguage || customDataFromParams,
+            user_lat: localStorage.getItem("lat"),
+            user_long: localStorage.getItem("long")
+        }
+    };
+    botOptions.userIdentity = generateUUID();
+    botOptions.clientId = data.clientid;
+    botOptions.clientSecret = data.clientsecret;
+
+    // Branding and UI Customizations
+    chatConfig.branding.header.icon.icon_url = data.top_left_icon || "https://platform.kore.ai/assets/websdkthemes/kore.png";
+    // chatConfig.branding.welcome_screen.logo.logo_url = data.top_left_icon || "https://platform.kore.ai/assets/websdkthemes/kore.png";
+    chatConfig.branding.welcome_screen.sub_title.name = data.wel_msg || "Welcome to Kore.ai";
+    chatConfig.branding.welcome_screen.note.name = data.tagline || "Our community is ready to assist!";
+    chatConfig.branding.welcome_screen.logo.logo_url="https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg";
+
+    // Proactive Chat Bubble Configuration
+    chatConfig.branding.chat_bubble.proactive.header = data.pro_msg || "Hello there";
+    chatConfig.branding.chat_bubble.proactive.messages[0].title = data.pro_msg2 || "Welcome to support";
+    chatConfig.branding.chat_bubble.proactive.messages[1].title = data.wel_msg || "";
+
+    // Install Plugins
+    installPlugins(chatWindow, data.bot_lang || "en-US");
+
+    // Show the chat window
+    chatWindow.show(chatConfig);
+    if (data.open_chatwindow_direct === "yes") {
+        chatWindow.switchView('chat');
+    }
+}
+
+// Function to Install Required Plugins
+function installPlugins(chatWindowInstance, lang = "en-US") {
+    const AgentDeskTopPlugin = AgentDeskTopPluginSDK.AgentDesktopPlugin;
+    const WebKitSTTPlugin = WebKitSTTPluginSDK.WebKitSTT;
+    const BrowserTTSPlugin = BrowserTTSPluginSDK.BrowserTTS;
+    const KoreMultiFileUploaderPlugin = MultiFileUploadPluginSDK.KoreMultiFileUploaderPlugin;
+
+    chatWindowInstance.installPlugin(new AgentDeskTopPlugin());
+    chatWindowInstance.installPlugin(new BrowserTTSPlugin());
+    chatWindowInstance.installPlugin(new WebKitSTTPlugin({ lang }));
+    chatWindowInstance.installPlugin(new KoreMultiFileUploaderPlugin());
+}
+
+// Start the chat initialization process
+initializeChat();
+</script>
+
+
+
+
+</body>
+</html>
+
+<style>
+
+    .kr-button-primary{
+        background:var(--color);
+        border: 20px solidvar(--color) !important;
+        color:#ffffff !important;
+    }
+    .chat-widget-header .info-content-data .content-text h2 {
+    color: #fff !important;
+    color:#ffffff !important;
+    }
+    
+    .chat-widget-header .info-content-data .content-text h1 {
+    color: #fff !important;
+    color:#ffffff !important;
+    }
+    .avatar-variations-footer .avatar-actions .content-info .text-content h4 {
+        color:#ffffff !important;
+    }
+    .avatar-variations-footer .avatar-actions .content-info .text-content .help-text-content {
+        color:#ffffff !important;
+        
+    }
+    .avatar-variations-footer .avatar-actions .content-info .text-content {
+        background:var(--color);
+    }
+    .avatar-variations-footer .avatar-actions .avatar-bg .default-avater-icon svg path {
+        fill: #ffffff !important;
+    }
+    
+    .chat-widget-header .actions-info .btn-action svg path {
+        fill: #ffffff !important;
+    }
+    .chat-widget-header .back-to-chat svg path {
+        stroke: #ffffff !important;
+    }
+    .chat-widget-header .actions-info .btn-action.btn-reconnect path {
+        fill: none;
+        stroke: #ffffff !important;
+        fill-opacity: 0 !important;
+    }
+    
+    
+    .welcome-chat-section .welcome-header .welcome-header-bg{
+        background:var(--color) !important;
+        color:#ffffff !important;
+    }
+    .start-conversations-wrapper .start-conv-sec .start-conv-button{
+            background:var(--color) !important;
+            color:#ffffff !important;
+    }
+    .avatar-variations-footer .avatar-actions .content-info .buttons-triger-click-wrapper .primary-button{
+        background:var(--color) !important;
+        color:#ffffff !important;
+    }
+    .avatar-variations-footer .avatar-actions .avatar-bg{
+        background:var(--color) !important;
+        color:#ffffff !important;
+    }
+    
+    .start-conversations-wrapper .start-conv-sec .conv-starter-box .bot_icon, .start-conversations-wrapper .start-conv-sec .conv-starter-box .bot_icon_image{
+        background:var(--color) !important;
+        color:#ffffff !important;      
+    }
+    .start-conversations-wrapper .start-conv-sec .start-conv-button{
+        border: 10px solidvar(--color) !important;
+        color:#ffffff !important;
+            
+    }
+    
+    </style>
+    
+    
+    <style>
+    .chat-widget-header {
+        background:var(--color);
+        color:#ffffff !important;
+    }
+    .agent-bubble-comp .agent-bubble-content .bubble-msg-with-img .bubble-msg{
+        background:var(--color);
+        color:#ffffff !important;
+    }
+    .chat-widget-header .info-content-data .bot_icon {
+          background-image: var(--img)  !important;
+        background-size: cover !important;
+    }
+    
+    .chat-widget-body-wrapper{
+        background-image: var(--chatimg) !important;
+    }
+    
+    .chat-widget-header .info-content-data .bot_icon
+    {
+        padding: 20px !important;
+        background: none;
+    }
+      
+    </style>

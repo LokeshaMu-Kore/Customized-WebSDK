@@ -1,0 +1,605 @@
+<html lang="en">
+  <head>
+    <link rel="icon" href="" sizes="32x32" id="dynamic-favicon" />
+    <link rel="apple-touch-icon-precomposed" href="" id="dynamic-favicon" />
+    <meta charset="utf-8" />
+    <script
+      src="libs/kore-no-conflict-start.js"
+      type="text/javascript"
+    ></script>
+    <input type="hidden" name="botname" id="botname" />
+    <input type="hidden" name="botid" id="botid" />
+    <input type="hidden" name="clientid" id="clientid" />
+    <input type="hidden" name="clientsecret" id="clientsecret" />
+    <input type="hidden" name="button_temp_vertcle" id="button_temp_vertcle" />
+    <input type="hidden" name="enable_speaker" id="enable_speaker" />
+    <input type="hidden" name="enable_microphone" id="enable_microphone" />
+    <input type="hidden" name="speaker_icon" id="speaker_icon" />
+    <input type="hidden" name="mic_icon" id="mic_icon" />
+    <input type="hidden" name="attach_icon" id="attach_icon" />
+    <input type="hidden" name="ui_form" id="ui_form" />
+    <input
+      type="hidden"
+      name="chatwindow_loading_time"
+      id="chatwindow_loading_time"
+    />
+    <input type="hidden" name="header_color" id="header_color" />
+    <input type="hidden" name="chat_back_img" id="chat_back_img" />
+    <input type="hidden" name="typing_indicator" id="typing_indicator" />
+    <input type="hidden" name="back_img_option" id="back_img_option" />
+    <input type="hidden" name="top_left_icon" id="top_left_icon" />
+    <input
+      type="hidden"
+      name="interactive_language"
+      id="interactive_language"
+    />
+    <input type="hidden" name="bot_lang" id="bot_lang" />
+    <input type="hidden" name="load_history" id="load_history" />
+    <input type="hidden" name="window_l_c" id="window_l_c" />
+    <input type="hidden" name="koreAPIUrl" id="koreAPIUrl" />
+    <input type="hidden" name="temp_type" id="temp_type" />
+    <input type="hidden" name="autosubmit_user_utt" id="autosubmit_user_utt" />
+    <input type="hidden" name="user_voice" id="user_voice" />
+    <input
+      type="hidden"
+      name="koreAPIUrl"
+      id="koreAPIUrl"
+      value="https://platform.kore.ai/api/"
+    />
+    <input
+      type="hidden"
+      name="temp_type"
+      id="temp_type"
+      value="without-script"
+    />
+    <input
+      type="hidden"
+      name="autosubmit_user_utt"
+      id="autosubmit_user_utt"
+      value="Yes"
+    />
+    <input type="hidden" name="user_voice" id="user_voice" value="0" />
+
+    <title id="dynamic-title"></title>
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://kore-wordpress.s3.us-east-2.amazonaws.com/wp-content/uploads/2021/09/18213142/fav-icon.png"
+    />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <style>
+      body {
+        margin-top: -25px;
+        margin: 0;
+      }
+      .sticky-top {
+        z-index: 0;
+        position: static;
+      }
+      .kore-chat-window-main-section {
+        position: fixed !important;
+      }
+      .kore-chat-window-main-section {
+        height: calc(100% - 75px);
+        /* width: calc(27% - 75px); */
+        border-radius: 4px;
+        right: 25px;
+        bottom: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="belcrop-body-img-section">
+      <img src="" id="bg_image" style="width: 100%" />
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@koredev/kore-web-sdk@11.4.1-rc.bbb3292/dist/umd/kore-web-sdk-umd-chat.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/agent-desktop-umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/webapi-stt-plugin-umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/browser-tts-umd-plugin-umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/plugins/multi-file-upload.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="custom_css.css" />
+    <link rel="stylesheet" href="banner_template.css" />
+    <link rel="stylesheet" href="ssoTemplate_custom.css" />
+    <link rel="stylesheet" href="checklist-template.css" />
+    <link rel="stylesheet" href="worknote-template.css" />
+    <script src="seatselection.js"></script>
+    <script src="citation_snippet.js"></script>
+    <script src="active_snippets.js"></script>
+    <script src="paragraph_snippets.js"></script>
+    <script src="article-temp.js"></script>
+    <script src="bannerTemplate.js"></script>
+    <script src="ssoTemplate.js"></script>
+    <script src="custom_table.js"></script>
+    <script src="video_snippets.js"></script>
+    <script src="checklistTemplate.js"></script>
+    <script src="worknotes-template.js"></script>
+
+    <script>
+      const localhostURL = "http://localhost:5000/backend";
+      const devURL = "https://barefoot-dev.kore.ai/backend";
+      const prodURL = "https://barefoot-backend.kore.ai/backend";
+
+      var url;
+      async function getDataFromAPI(sdkID) {
+        try {
+          // console.log("current location is :" ,window.location.href)
+
+          // if(window.location.href == `http://localhost:5000/backend/WebSDK/index.html?id=${sdkID}`){
+          //   url = localhostURL;
+          // }
+          // else if(window.location.href == `https://barefoot-dev.kore.ai/backend/WebSDK/index.html?id=${sdkID}`){
+          //   url = devURL;
+          // }
+          // else{
+          url = prodURL;
+          // }
+
+          const response = await fetch(`${url}/api/webSDK/${sdkID}`);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const jsonData = await response.json();
+          return jsonData[0];
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+
+      navigator.geolocation.getCurrentPosition(function (location) {
+        localStorage.setItem("lat", location.coords.latitude);
+        localStorage.setItem("long", location.coords.longitude);
+      });
+      //alert(localStorage.getItem("lat"));
+      var userlat = localStorage.getItem("lat");
+      var userlong = localStorage.getItem("long");
+    </script>
+
+    <script>
+      async function main() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const CustomDataFromParams = urlParams.get("customData"); // '1555'
+        const sdkID = urlParams.get("id");
+        const data = await getDataFromAPI(sdkID);
+        console.log(data);
+
+        var uuid;
+
+        function koreGenerateUUID() {
+          console.info("generating UUID");
+          var d = new Date().getTime();
+          if (
+            window.performance &&
+            typeof window.performance.now === "function"
+          ) {
+            d += performance.now(); //use high-precision timer if available
+          }
+          uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+            /[xy]/g,
+            function (c) {
+              var r = (d + Math.random() * 16) % 16 | 0;
+              d = Math.floor(d / 16);
+              return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
+            }
+          );
+          return uuid;
+        }
+        var load_history = $("#load_history").val();
+        if (load_history == "no") {
+          var lh = false;
+        } else {
+          var lh = true;
+        }
+
+        document.getElementById("dynamic-title").innerText = data.botname;
+        document.getElementById("bg_image").src = data.bg_image;
+        const urlRegex =
+          /\b((https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])\b/gi;
+        if (!urlRegex.test(data.bg_image)) {
+          document.getElementById(
+            "bg_image"
+          ).src = `https://demo.kore.ai/demo/bot/bg_images/${data.bg_image}`;
+        }
+
+        // if((url===prodURL) &&data.ID>1743){
+        //     document.getElementById("bg_image").src = `data.bg_image`;
+
+        // }
+        // else {
+        //     document.getElementById("bg_image").src = `https://demo.kore.ai/demo/bot/bg_images/${data.bg_image}`;
+
+        // }
+
+        document.getElementById("dynamic-favicon").href = data.top_left_icon;
+        document.getElementById("header_color").href = data.header_color;
+        document.documentElement.style.setProperty(
+          "--color",
+          data.header_color
+        );
+        document.documentElement.style.setProperty(
+          "--TextColor",
+          data.text_color
+        );
+        document.documentElement.style.setProperty(
+          "--img",
+          `url('${data.top_left_icon}')`
+        );
+        document.documentElement.style.setProperty(
+          "--chatimg",
+          `url('${data.chat_back_img}')`
+          // url('https://kore-wordpress.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/03/01074614/Kore.ai_logo-latest.svg')
+        );
+        document.getElementById("botname").value = data.botname;
+        document.getElementById("botid").value = data.botid;
+        document.getElementById("clientid").value = data.clientid;
+        document.getElementById("clientsecret").value = data.clientsecret;
+        document.getElementById("button_temp_vertcle").value =
+          data.buttonTempVertcle;
+        document.getElementById("enable_speaker").value = data.enableSpeaker;
+        document.getElementById("enable_microphone").value =
+          data.enableMicrophone;
+        document.getElementById("speaker_icon").value = data.speakerIcon;
+        document.getElementById("mic_icon").value = data.micIcon;
+        document.getElementById("attach_icon").value = data.attachIcon;
+        document.getElementById("ui_form").value = data.uiForm;
+        document.getElementById("chatwindow_loading_time").value =
+          data.chatWindowLoadingTime;
+        document.getElementById("header_color").value = data.headerColor;
+        document.getElementById("chat_back_img").value = data.chatBackImg;
+        document.getElementById("typing_indicator").value =
+          data.typingIndicator;
+        document.getElementById("back_img_option").value = data.backImgOption;
+        document.getElementById("top_left_icon").value = data.topLeftIcon;
+        document.getElementById("interactive_language").value =
+          data.interactiveLanguage;
+        document.getElementById("bot_lang").value = data.botLang;
+        document.getElementById("load_history").value = data.loadHistory;
+        document.getElementById("window_l_c").value = data.windowLC;
+        document.getElementById("koreAPIUrl").value = data.koreAPIUrl;
+        document.getElementById("temp_type").value = data.tempType;
+        document.getElementById("autosubmit_user_utt").value =
+          data.autoSubmitUserUtt;
+        document.getElementById("user_voice").value = data.userVoice;
+
+        // // Set favicon dynamically
+        const favicons = document.querySelectorAll("#dynamic-favicon");
+        favicons.forEach((favicon) => {
+          favicon.href = data.top_left_icon;
+        });
+
+        var botid = $("#botid").val();
+        var clientid = $("#clientid").val();
+        var clientsecret = $("#clientsecret").val();
+        var chatConfig = KoreChatSDK.chatConfig;
+        var chatWindow = KoreChatSDK.chatWindow;
+        var AgentDeskTopPlugin = AgentDeskTopPluginSDK.AgentDesktopPlugin;
+        var WebKitSTTPlugin = WebKitSTTPluginSDK.WebKitSTT;
+        var BrowserTTSPlugin = BrowserTTSPluginSDK.BrowserTTS;
+        var KoreMultiFileUploaderPlugin =
+          MultiFileUploadPluginSDK.KoreMultiFileUploaderPlugin;
+        var chatWindowInstance = new chatWindow();
+
+        var botOptions = chatConfig.botOptions;
+        console.log(chatConfig);
+
+        //   botOptions.koreAPIUrl = "https://platform.kore.ai/api/";
+        botOptions.koreAPIUrl = data.koreAPIUrl || "https://bots.kore.ai/api/";
+        //   botOptions.koreAPIUrl = "https://demo-bots.kore.ai/api/";
+
+        // botOptions.koreAPIUrl = "https://bots.kore.ai/api/";
+
+        botOptions.JWTUrl =
+          "https://mk2r2rmj21.execute-api.us-east-1.amazonaws.com/dev/users/sts";
+
+        // botOptions.botInfo = { name: "Prudential International ", "_id": "st-623abe91-74ba-571d-9643-2b5eab31d54e" };
+
+        botOptions.botInfo = {
+          name: data.botname,
+          _id: data.botid,
+          customData: {
+            customData: data.interactive_language || CustomDataFromParams,
+            customData2: "",
+            user_lat: userlat,
+            user_long: userlong,
+          },
+        };
+
+        console.log(botOptions.botInfo);
+        //botOptions.userIdentity = koreGenerateUUID();
+        botOptions.userIdentity = koreGenerateUUID(); // Provide users email id here
+
+        botOptions.clientId = clientid;
+        botOptions.clientSecret = clientsecret;
+
+        function parseHTML(html) {
+          var t = document.createElement("template");
+          t.innerHTML = html;
+          return t.content;
+        }
+
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent()
+        );
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent2()
+        ); //citation snippet
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent3()
+        );
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent4()
+        );
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent6()
+        ); //article template
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent7()
+        ); //banner template
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponentSSO()
+        ); //SSO template
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent8()
+        ); //custom table template
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent9()
+        ); //video snippets tempalte related to searchassist template
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent10()
+        ); //check list tempalte
+        chatWindowInstance.templateManager.installTemplate(
+          new customTemplateComponent11()
+        ); //worknotes tempalte
+
+        chatConfig.branding.welcome_screen.starter_box.quick_start_buttons.action.value =
+          "Hi";
+        chatConfig.branding.welcome_screen.sub_title.name =
+          data.wel_msg || "Welcome  to Kore.ai"; //Welcomescreen.title.name
+        chatConfig.branding.welcome_screen.note.name =
+          data.tagline ||
+          "Our Community is ready to help you to join our best platform";
+        chatConfig.branding.welcome_screen.logo.logo_url =
+          data.top_left_icon ||
+          "https://platform.kore.ai/assets/websdkthemes/kore.png";
+
+        chatConfig.branding.header.icon.icon_url =
+          data.top_left_icon ||
+          "https://platform.kore.ai/assets/websdkthemes/kore.png";
+
+        chatConfig.branding.body.agent_message.icon.icon_url =
+          "https://platform.kore.ai/assets/websdkthemes/agent.jpg";
+        chatConfig.branding.body.agent_message.sub_title.name = "Agent Service";
+        chatConfig.branding.welcome_screen.promotional_content.promotions[0].banner =
+          "https://platform.kore.ai/assets/websdkthemes/kore_banner.png";
+
+        if (data.hide_pro_msg == "yes") {
+          //             chatConfig.branding.chat_bubble.proactive.header=data.hide_pro_msg;
+          // chatConfig.branding.chat_bubble.proactive.messages[0].title=data.pro_msg2;
+          chatConfig.branding.chat_bubble.proactive.header = "";
+          chatConfig.branding.chat_bubble.proactive.messages[0] = "";
+        } else {
+          chatConfig.branding.chat_bubble.proactive.header =
+            data.pro_msg || "Hello there";
+          chatConfig.branding.chat_bubble.proactive.messages[0].title =
+            data.pro_msg2;
+        }
+        chatConfig.branding.chat_bubble.proactive.messages[1].title = "";
+
+        // chatConfig.branding.chat_bubble.proactive.messages[0].title=data.pro_msg2 ||"";
+
+        chatConfig.loadHistory = lh;
+
+        if (data.skip_welcome === "yes") {
+          chatConfig.branding.welcome_screen.show = false;
+        } else {
+          chatConfig.branding.welcome_screen.show = true;
+        }
+
+        if (data.hide_show_connectagent == "yes") {
+          chatConfig.branding.welcome_screen.starter_box.quick_start_buttons.buttons =
+            chatConfig.branding.welcome_screen.starter_box.quick_start_buttons.buttons.slice(
+              0,
+              2
+            );
+        }
+        if (data.hide_kore_box === "yes") {
+          const style = document.createElement("style");
+          style.innerHTML = `
+          .pramotional-banner-wrapper-container {
+              display: none !important;
+          }
+      `;
+          document.head.appendChild(style);
+        }
+
+        if (data.attach_icon === "no") {
+          const style = document.createElement("style");
+          style.innerHTML = `
+      .chat-widget-composebar .compose-bar-wrapper .attachmentUpload {
+  display:none !important;
+}
+      `;
+          document.head.appendChild(style);
+        }
+
+        if (data.mic_icon === "no") {
+          const style = document.createElement("style");
+          style.innerHTML = `
+      .chat-widget-composebar .compose-bar-wrapper .voice-btn {
+  display:none !important;
+}
+      `;
+          document.head.appendChild(style);
+        }
+
+        if (data.speaker_icon === "no") {
+          const style = document.createElement("style");
+          style.innerHTML = `
+      .chat-widget-composebar .compose-bar-wrapper .compose-text-area .speaker-btn-mute.show {
+  display:none !important;
+}
+
+
+      `;
+          document.head.appendChild(style);
+        }
+
+        //chatConfig.isSendButton= true;
+        chatConfig.isPlatform = true;
+        chatConfig.UIContext.userName = data.requester;
+        chatWindowInstance.installPlugin(new AgentDeskTopPlugin());
+        chatWindowInstance.installPlugin(new BrowserTTSPlugin());
+
+        const options = {
+          lang: data.bot_lang,
+        };
+
+        chatWindowInstance.installPlugin(new WebKitSTTPlugin(options));
+        chatWindowInstance.installPlugin(new KoreMultiFileUploaderPlugin());
+        //skip second window open dibot_lang msg
+
+        // chatConfig.branding.welcome_screen.show = true;
+        //open chatwindow direct without send button click
+        // chatWindowInstance.show(chatConfig);
+
+        if (data.open_chatwindow_direct == "yes") {
+          chatConfig.botOptions.openSocket = true;
+          chatWindowInstance.show(chatConfig);
+          chatWindowInstance.switchView("chat");
+        } else {
+          chatWindowInstance.show(chatConfig);
+        }
+      }
+
+      main();
+    </script>
+  </body>
+  <figure class="bot_icon" id="image"></figure>
+</html>
+
+<style>
+  /* :root {
+--color: #1e90ff;
+  /* --color: data.header_color; */
+
+  /* --img: url('https://demo.kore.ai/demo/bot/botguide/FAB logo.png'); */
+
+  /* } */
+
+  .kr-button-primary {
+    background: var(--color);
+    border: 20px solid var(--color) !important;
+    color: #ffffff !important;
+  }
+  .chat-widget-header .info-content-data .content-text h2 {
+    color: #fff !important;
+    color: #ffffff !important;
+  }
+
+  .chat-widget-header .info-content-data .content-text h1 {
+    color: #fff !important;
+    color: #ffffff !important;
+  }
+  .avatar-variations-footer .avatar-actions .content-info .text-content h4 {
+    color: #ffffff !important;
+  }
+  .avatar-variations-footer
+    .avatar-actions
+    .content-info
+    .text-content
+    .help-text-content {
+    color: #ffffff !important;
+  }
+  .avatar-variations-footer .avatar-actions .content-info .text-content {
+    background: var(--color);
+  }
+  .avatar-variations-footer
+    .avatar-actions
+    .avatar-bg
+    .default-avater-icon
+    svg
+    path {
+    fill: #ffffff !important;
+  }
+
+  .chat-widget-header .actions-info .btn-action svg path {
+    fill: #ffffff !important;
+  }
+  .chat-widget-header .back-to-chat svg path {
+    stroke: #ffffff !important;
+  }
+  .chat-widget-header .actions-info .btn-action.btn-reconnect path {
+    fill: none;
+    stroke: #ffffff !important;
+    fill-opacity: 0 !important;
+  }
+
+  .welcome-chat-section .welcome-header .welcome-header-bg {
+    background: var(--color) !important;
+    color: #ffffff !important;
+  }
+  .start-conversations-wrapper .start-conv-sec .start-conv-button {
+    background: var(--color) !important;
+    color: #ffffff !important;
+  }
+  .avatar-variations-footer
+    .avatar-actions
+    .content-info
+    .buttons-triger-click-wrapper
+    .primary-button {
+    background: var(--color) !important;
+    color: #ffffff !important;
+  }
+  .avatar-variations-footer .avatar-actions .avatar-bg {
+    background: var(--color) !important;
+    color: #ffffff !important;
+  }
+
+  .start-conversations-wrapper .start-conv-sec .conv-starter-box .bot_icon,
+  .start-conversations-wrapper
+    .start-conv-sec
+    .conv-starter-box
+    .bot_icon_image {
+    background: var(--color) !important;
+    color: #ffffff !important;
+  }
+  .start-conversations-wrapper .start-conv-sec .start-conv-button {
+    border: 10px solidvar(--color) !important;
+    color: #ffffff !important;
+  }
+</style>
+
+<style>
+  .chat-widget-header {
+    background: var(--color);
+    color: #ffffff !important;
+  }
+  .agent-bubble-comp .agent-bubble-content .bubble-msg-with-img .bubble-msg {
+    background: var(--color);
+    color: #ffffff !important;
+  }
+  .chat-widget-header .info-content-data .bot_icon {
+    background-image: var(--img) !important;
+    background-size: cover !important;
+  }
+
+  .chat-widget-header .info-content-data .bot_icon {
+    padding: 20px !important;
+    background: none;
+  }
+</style>

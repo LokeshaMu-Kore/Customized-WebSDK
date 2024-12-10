@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Logo Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <p style="background-image: url('../default/bgimg.jpg');"> 
+    <div class="container">
+        <div class="header">
+            <h1>Custom Logo Editor</h1>
+        </div>
+        <form id="mergeForm">
+            <div class="upload-section">
+                <label for="logo" class="upload-label">
+                    <span>Upload Logo</span>
+                    
+                    <span>  <i class="fas fa-upload"></i></span>
+                    <input type="file" id="logo" name="logo" accept="image/*" required hidden>
+                    <div id="logoPreview" class="preview"></div>
+                </label>
+                <span>
+                    <!-- <a href="https://www.remove.bg/upload">Remove Background here</a> -->
+                    <a href="https://www.remove.bg/upload" target="_blank" rel="noopener noreferrer">Remove Background here</a>
+   
+                </span>
+
+                <label for="stencil" class="upload-label">
+                    <span >Upload Stencil</span>
+                    <span>  <i class="fas fa-upload"></i></span>
+
+                    <input type="file" id="stencil" name="stencil" accept="image/*" hidden>
+                    <div id="stencilPreview" class="preview"></div>
+                </label>
+               <button type="button" class="button default-stencil" data-stencil="stencil_demo.png">
+    <span>Use Default Demo Stencil</span>
+    <img src="../default/stencil_demo.png" alt="Demo Stencil Preview" class="mini-preview-image">
+</button>
+
+<button type="button" class="button default-stencil" data-stencil="stencil2.png">
+    <span>Use Default Marketing Stencil</span>
+    <img src="../default/stencil2.png" alt="Marketing Stencil Preview" class="mini-preview-image">
+</button>
+
+            </div>
+            <div class="controls">
+                <div class="slider-group">
+                    <label for="logoPercentage" >Logo Size</label>
+                    <input type="range" id="logoPercentage" name="logoPercentage" min="0" max="100" value="50">
+                </div>
+                <div class="slider-group">
+                    <label for="stencilPercentage">Stencil Size</label>
+                    <input type="range" id="stencilPercentage" name="stencilPercentage" min="0" max="100" value="50">
+                </div>
+                <div class="slider-group">
+                    <label for="width">Output Width (px)</label>
+                    <input type="number" id="width" name="width" min="100" value="500">
+                </div>
+                <div class="slider-group">
+                    <label for="height">Output Height (px)</label>
+                    <input type="number" id="height" name="height" min="100" value="300">
+                </div>
+                <button type="button" id="rotateLogo" class="button">Rotate Logo 90°</button>
+                <button type="submit" class="button primary">Check Results</button>
+            </div>
+       
+
+    <div>
+
+
+    </div>
+    <div class="result" id="resultSection">
+        <h2>Merged Image:</h2>
+        <img id="mergedImage" alt="Merged Image">
+        <a id="downloadButton" class="button download" href="#" download="merged_image.png"><i class="fas fa-download"></i></a> 
+    </div>
+</form>
+</div>
+        
+    <script src="script.js"></script>
+</body>
+</html>

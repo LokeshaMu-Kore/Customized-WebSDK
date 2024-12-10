@@ -1,0 +1,330 @@
+
+:root {
+    /*--custom_color: linear-gradient(90deg, #262364, #255cb1);*/
+    --custom_color: #230851;
+}
+
+
+.avatar-variations-footer .avatar-actions .avatar-bg, 
+.avatar-variations-footer .avatar-actions .content-info .buttons-triger-click-wrapper .primary-button,
+.welcome-chat-section .welcome-header .welcome-header-bg,
+.start-conversations-wrapper .start-conv-sec .conv-starter-box .bot_icon,
+.start-conversations-wrapper .start-conv-sec .start-conv-button,
+.chat-widget-header .info-content-data .bot_icon,
+.agent-bubble-comp .agent-bubble-content .bubble-msg-with-img .bubble-msg
+ {
+    background: var(--custom_color) !important;
+}
+
+.bot-bubble-comp .bot-bubble-content {
+    padding-left: 0 !important;
+}
+
+.bot-bubble-comp .bot-bubble-content .bubble-msg-with-img .bot-img,
+.chat-widget-header .info-content-data .bot_icon {
+    /*background: url("https://i.imgur.com/ewAnB2u.png") !important;*/
+    background: url("https://i.imgur.com/n9xK7hV.png") !important;
+    background-size: cover !important;
+}
+
+.chat-widget-header .info-content-data .bot_icon {
+    border: 0px solid var(--custom_color) !important;
+    border-radius: unset !important;
+}
+
+.welcome-chat-section .welcome-header.variation-2 .bg-logo {
+    background-color: white !important;
+    background-image: url("https://i.imgur.com/oo5fawe.png") !important;
+    background-size: cover !important;
+    border-radius: 50% !important;
+}
+
+.chat-widget-composebar .compose-bar-wrapper .send-btn {
+    background: var(--custom_color) !important;
+}
+
+.bot-bubble-comp .bot-bubble-content .bubble-msg-with-img .bot-img {
+    display: none !important;
+}
+
+.welcome-chat-section .welcome-header .bg-logo figure img,
+.bot-bubble-comp .bot-bubble-content .bubble-msg-with-img .bot-img img,
+.chat-widget-header .info-content-data .bot_icon svg {
+    opacity: 0 !important;
+}
+
+.kore-chat-window-main-section {
+    z-index: 1 !important;
+    width: 500px !important;
+    height: calc(100% - 85px) !important;
+}
+
+.chat-window-main-section button {
+    transition: unset;
+}
+
+.chat-widget-header {
+    background: var(--custom_color) !important;
+}
+
+.chat-widget-header * {
+    color: white !important;
+}
+
+.chat-widget-header .back-to-chat * {
+    stroke: white !important;
+}
+
+.chat-widget-header .actions-info * {
+    fill: white !important;
+}
+
+.link-wrapper-content {
+    padding: 0 12px 12px 12px !important;
+}
+
+.pramotional-banner-wrapper-container .banner-img img {
+    max-height: unset !important;
+}
+
+.start-conversations-wrapper {
+    padding: 12px !important;
+}
+
+.link-wrapper-content .main-heading-wrapper h1 {
+    font-size: 14px !important;
+    line-height: 14px !important;
+}
+
+.kr-button-primary {
+    background: white !important;
+	color: var(--custom_color) !important;
+	border-color: var(--custom_color) !important;
+}
+
+.kr-button-primary:hover {
+    background: var(--custom_color) !important;
+	color: white !important;
+}
+
+.attachment-sended-temp-wrapper .multiple-attchments .attchments-wrap .img-attch figure img {
+    max-height: 420px !important;
+}
+
+.attachment-sended-temp-wrapper .multiple-attchments .attchment-details {
+    display: none !important;
+}
+
+.seat {
+    padding: 5px !important;
+}
+
+.list-template-carousel-wrapper .list-carousel .list-carousel-item .content-block .rating-block {
+    display: none !important;
+}
+
+html,
+body,
+.belcrop-body-img-section {
+    height: 100vh !important;
+    overflow: hidden !important;
+}
+
+#belcorp-home {
+    width: 100% !important;
+    /*height: 100% !important;*/
+}
+
+.search-temp-one .top-header {
+	padding: 0 !important;
+}
+
+.search-temp-one .temp-footer-block .temp-footer {
+    justify-content: end !important;
+}
+
+.search-temp-one {
+    width: calc(100% - 30px)!important;
+    margin: auto !important;
+}
+
+.temp-footer-block {
+	position: relative !important;
+}
+
+.temp-footer-block::before {
+    content: '' !important;
+    background: url("https://i.imgur.com/lOGQb1J.png") no-repeat !important;
+    background-size: contain !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    height: 16px !important;
+    width: 150px !important;
+}
+
+.search-temp-one {
+	margin: 16px auto 24px !important;
+}
+
+.search-temp-one .citation-data-desc {
+    padding-top: 4px !important;
+    padding-bottom: 16px !important;
+}
+
+.kore-chat-window {
+    width: 450px !important;
+    right: 10px !important;
+    left: unset !important;
+    bottom: 10px !important;
+    top: unset !important;
+    height: 95vh !important;
+    border-radius: 0 !important;
+}
+
+.kore-chat-window .kore-chat-header {
+    border-radius: 0 !important;
+}
+
+.kore-chat-window .kore-chat-header .header-title {
+    text-align: left !important;
+}
+
+.kore-chat-window .carousel {
+    width: 100% !important;
+}
+
+.purejscarousel-btn-next {
+    right: 0 !important;
+}
+
+.kore-chat-window .botuploadedFileName {
+    display: none !important;
+}
+
+.kore-chat-window .imgCntr, .uploadedFileName, .uploadedFileIcon {
+    padding: 0 !important;
+}
+
+.kore-chat-window .listTmplContent .listTmplContentBox {
+    width: 80% !important;
+}
+
+.kore-chat-window .listTmplContent .buyBtn {
+    font-size: 14px !important;
+}
+
+.kore-chat-window .modal-content-imagePreview {
+    width: unset !important;
+    max-width: unset !important;
+    height: 90% !important;
+    max-height: 90% !important;
+}
+
+.plane {
+    max-width: 300px !important;
+}
+
+.plane h3 {
+    display: none !important;
+}
+
+.plane .cockpit2 img {
+    max-width: 300px !important;
+}
+
+.inbutton#seatSubmit {
+    width: 100% !important;
+}
+
+iframe#main_body_iframe_custom {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+div#theme_selector {
+    width: 48px;
+    aspect-ratio: 1;
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+    background-color: var(--custom_color);
+    background-image: url("https://i.imgur.com/qgE92Mi.png");
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div#theme_selector.selector_active {
+    background-image: url("https://i.imgur.com/O4Maduo.png");
+}
+
+div#theme_selector div.theme_menu {
+    display: inline-block;
+    width: max-content;
+    position: absolute;
+    left: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+div#theme_selector div.theme_menu span {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+div#theme_selector div.theme_menu span:hover {
+    border-bottom: 2px solid white;
+}
+
+div#theme_selector div.theme_menu_hidden {
+    display: none;
+}
+
+div#theme_selector div.theme_menu span.menu_item_active {
+    color: white;
+    text-shadow: -1px -1px 0 #777, 1px -1px 0 #777, -1px 1px 0 #777, 1px 1px 0 #777;
+}
+
+.button-template-container {
+    padding: 6px 12px 6px 12px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    #belcorp-home {
+        display: none;
+    }
+    .kore-chat-window, .kore-chat-window-main-section {
+        width: 100% !important;
+        right: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        top: 0 !important;
+        height: 100% !important;
+        max-height: unset !important;
+    }
+    .kore-chat-window .lefti {
+        display: block !important;
+    }
+    .kore-chat-window .kore-chat-header .header-title {
+        margin-left: 36px !important;
+    }
+    .kore-chat-window .sendBtnCnt {
+        right: 120px !important;
+    }
+    .kore-chat-window .sendBtnCnt .sendButton {
+        width: 40px !important;
+        bottom: 36px !important;
+        right: 16px !important;
+    }
+}

@@ -1,0 +1,249 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-color: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-attachment: fixed; /* Keeps the background fixed during scroll */
+  background-image: url('../default/Untitled design.png');
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the background covers the entire area */
+  background-position: center; /* Centers the background image */
+  
+}
+
+
+
+
+.container {
+  background-color: #b9bceb5f;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 530px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+
+}
+
+.header {
+  margin-bottom: 20px;
+  position: sticky;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.upload-label {
+  display: block;
+  background-color: #f0f0f0;
+  border: 2px dashed #cccccc;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666666;
+  transition: all 0.3s ease;
+}
+
+.upload-label:hover {
+  border-color: #007bff;
+  background-color: #e7f1ff;
+  color: #007bff;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.slider-group label {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+input[type="number"] {
+  width: 95%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  transition: border 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #007bff;
+}
+
+.button {
+  padding: 15px 20px;
+  border-radius: 40px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button.primary {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.button.primary:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.result {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result h2 {
+  font-size: 20px;
+  color: #333333;
+}
+
+.result img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.preview {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.preview img.preview-image {
+  max-width: 100%;
+  max-height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* .mini-preview-image{
+  max-width: 40%;
+  max-height: 40px;
+  align: center;
+ 
+  /* border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+ /* */
+
+ .button.default-stencil {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  gap: 10px; /* Space between text and image */
+  padding: 10px 15px;
+  font-size: 10px;
+  width: 100%; /* Optional: Set width to ensure the button occupies full space */
+  text-align: center;
+}
+
+
+.mini-preview-image {
+  width: 40px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  object-fit: cover; /* Ensures the image fits within the dimensions */
+  border-radius: 4px; /* Optional: round corners for a polished look */
+}
+
+
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 90%;
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+
+  .button {
+    padding: 10px 16px;
+  }
+
+  input[type="number"], input[type="range"] {
+    font-size: 14px;
+  }
+
+  .result h2 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+  .container {
+    max-width: 80%;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .result h2 {
+    font-size: 20px;
+  }
+}

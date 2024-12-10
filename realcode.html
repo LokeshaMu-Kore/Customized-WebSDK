@@ -1,0 +1,402 @@
+ 
+  
+  
+ 
+  <html lang="en">
+
+<head>
+<link rel="icon" href="https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg" sizes="32x32" />
+<link rel="apple-touch-icon-precomposed" href="https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg" />
+    <meta charset="utf-8">
+	<script src="libs/kore-no-conflict-start.js" type="text/javascript"></script>
+   <input type="hidden" name="button_temp_vertcle" id="button_temp_vertcle" value="yes"/>
+<input type="hidden" name="button_temp_vertcle" id="button_temp_vertcle" value="yes"/>
+<input type="hidden" name="enable_speaker" id="enable_speaker" value="No"/>
+<input type="hidden" name="enable_microphone" id="enable_microphone" value="No"/>
+<input type="hidden" name="speaker_icon" id="speaker_icon" value="yes"/>
+<input type="hidden" name="mic_icon" id="mic_icon" value="yes"/>
+<input type="hidden" name="attach_icon" id="attach_icon" value="yes"/>
+<input type="hidden" name="ui_form" id="ui_form" value="yes"/>
+<input type="hidden" name="chatwindow_loading_time" id="chatwindow_loading_time" value=""/>
+ <input type="hidden" name="header_color" id="header_color" value="#da0010"/>
+<input type="hidden" name="chat_back_img" id="chat_back_img" value=""/>
+<input type="hidden" name="typing_indicator" id="typing_indicator" value="Yes"/>
+<input type="hidden" name="back_img_option" id="back_img_option" value="cover"/>
+<input type="hidden" name="top_left_icon" id="top_left_icon" value="https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg"/>
+<input type="hidden" name="interactive_language" id="interactive_language" value=""/>
+<input type="hidden" name="bot_lang" id="bot_lang" value="en-US"/>
+<input type="hidden" name="load_history" id="load_history" value="no"/>
+<input type="hidden" name="window_l_c" id="window_l_c" value="right"/>
+<input type="hidden" name="botname" id="botname" value="HSBC"/>
+<input type="hidden" name="botid" id="botid" value="st-1ce03d9a-086c-50a0-9b49-604a287f202e"/>
+<input type="hidden" name="clientid" id="clientid" value="cs-06954385-036e-5ceb-af59-b47be3e0da8d"/>
+<input type="hidden" name="clientsecret" id="clientsecret" value="uxO1/7tGnz+4tAzoa3aMiNZ08A/0JW3DSJeyb1o2EGs="/>
+<input type="hidden" name="koreAPIUrl" id="koreAPIUrl" value=""/>
+<input type="hidden" name="temp_type" id="temp_type" value="without-script"/>
+<input type="hidden" name="autosubmit_user_utt" id="autosubmit_user_utt" value="Yes"/>
+<input type="hidden" name="user_voice" id="user_voice" value="0"/>
+
+<title>HSBC</title>
+   <link rel="icon" type="image/x-icon" href="https://kore-wordpress.s3.us-east-2.amazonaws.com/wp-content/uploads/2021/09/18213142/fav-icon.png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+ 
+
+    <!-- Favicon 
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet"> 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib2/animate/animate.min.css" rel="stylesheet">
+    <link href="lib2/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="css2/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css2/style.css" rel="stylesheet">-->
+	
+     <style>
+	body {
+    margin-top: -25px;
+	    margin: 0;
+}
+.sticky-top{
+    z-index: 0;
+	position: static;
+}
+.kore-chat-window-main-section {
+    position: fixed !Important;
+	
+	}
+	.kore-chat-window-main-section {
+    height: calc(100% - 75px);
+    border-radius: 4px;
+    right: 8px;
+    bottom: 2px;
+  
+}
+	
+</style>
+</head>
+
+<body>
+
+				 <div class="belcrop-body-img-section">
+        <img src="https://demo.kore.ai/demo/bot/bg_images/screencapture-hsbc-co-in-2024-04-05-15_34_14.png" id="belcorp-home"  style="width: 100%;">
+		
+    </div>
+			<!--<div id="video_view" class="d-none">
+		<video id="local_video"></video>
+		<video id="remote_video" autoplay></video>
+	</div>--->
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+<!-- <script> -->
+
+
+
+
+
+
+<link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  <!---<script  src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.4.1/dist/umd/kore-web-sdk-umd-chat.min.js"></script>
+---><script  src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.5.0/dist/umd/kore-web-sdk-umd-chat.min.js"></script>
+
+<script  src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.5.0/dist/umd/plugins/agent-desktop-umd.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.5.0/dist/umd/plugins/webapi-stt-plugin-umd.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.5.0/dist/umd/plugins/browser-tts-umd-plugin-umd.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.5.0/dist/umd/plugins/multi-file-upload.js"></script>
+
+<!--<script  src="https://cdn.jsdelivr.net/npm/@koredev/kore-web-sdk@11.0.1-rc.c7d59b4/dist/umd/kore-web-sdk-umd-chat.min.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/@koredev/kore-web-sdk@11.0.1-rc.c7d59b4/dist/umd/plugins/agent-desktop-umd.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/@koredev/kore-web-sdk@11.0.1-rc.c7d59b4/dist/umd/plugins/webapi-stt-plugin-umd.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/@koredev/kore-web-sdk@11.0.1-rc.c7d59b4/dist/umd/plugins/multi-file-upload.js"></script>
+---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="custom_css.css">
+ <link rel="stylesheet" href="banner_template.css">
+ <link rel="stylesheet" href="ssoTemplate_custom.css">
+ <link rel="stylesheet" href="checklist-template.css">
+ <link rel="stylesheet" href="worknote-template.css">
+<script src="seatselection.js"></script>
+<script src="citation_snippet.js"></script>
+<script src="active_snippets.js"></script>
+<script src="paragraph_snippets.js"></script>
+<script src="article-temp.js"></script>
+<script src="bannerTemplate.js"></script>
+<script src="ssoTemplate.js"></script>
+<script src="custom_table.js"></script>
+<script src="video_snippets.js"></script>
+<script src="checklistTemplate.js"></script>
+<script src="worknotes-template.js"></script>
+
+<script>
+navigator.geolocation.getCurrentPosition(function(location) {
+  //console.log(location.coords.latitude);
+  //console.log(location.coords.longitude);
+localStorage.setItem("lat", location.coords.latitude);
+localStorage.setItem("long", location.coords.longitude);
+
+});
+//alert(localStorage.getItem("lat"));
+var userlat = localStorage.getItem("lat")
+var userlong = localStorage.getItem("long")
+</script>
+
+<script>
+var uuid;
+
+function koreGenerateUUID() {
+    console.info("generating UUID");
+    var d = new Date().getTime();
+    if (window.performance && typeof window.performance.now === "function") {
+        d += performance.now(); //use high-precision timer if available
+    }
+    uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+}
+var load_history = $('#load_history').val();
+if(load_history=='no'){
+ var lh = false;
+}
+else{
+	var lh = true;
+}
+
+
+
+var botid = $('#botid').val();
+var clientid = $('#clientid').val();
+var clientsecret = $('#clientsecret').val();
+//chat window declaration
+var chatConfig=KoreChatSDK.chatConfig;
+var chatWindow=KoreChatSDK.chatWindow;
+var AgentDeskTopPlugin = AgentDeskTopPluginSDK.AgentDesktopPlugin;
+var WebKitSTTPlugin=WebKitSTTPluginSDK.WebKitSTT;
+var BrowserTTSPlugin=BrowserTTSPluginSDK.BrowserTTS;
+var KoreMultiFileUploaderPlugin = MultiFileUploadPluginSDK.KoreMultiFileUploaderPlugin;
+//create chat window instance
+var chatWindowInstance = new chatWindow();
+
+//configure bot configurations
+var botOptions=chatConfig.botOptions;
+//console.log(botOptions);
+console.log(chatConfig);
+
+
+botOptions.koreAPIUrl = "https://bots.kore.ai/api/";
+//botOptions.koreAPIUrl = "";
+botOptions.JWTUrl = "https://mk2r2rmj21.execute-api.us-east-1.amazonaws.com/dev/users/sts";
+
+// botOptions.botInfo = { name: "HSBC", "_id": "st-00efe0d7-8ceb-5719-97f3-acc5769f16a8" };
+ 
+botOptions.botInfo = {name:"OneSpaWorld","_id":"st-1ce03d9a-086c-50a0-9b49-604a287f202e" }; // last
+				
+		console.log(botOptions.botInfo);		
+        //botOptions.userIdentity = koreGenerateUUID();
+		 				botOptions.userIdentity = koreGenerateUUID();// Provide users email id here
+				
+        botOptions.clientId = clientid;
+        botOptions.clientSecret = clientsecret;
+
+
+
+
+
+function parseHTML(html) {
+    var t = document.createElement('template');
+    t.innerHTML = html;
+    return t.content;
+}
+
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent());
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent2());//citation snippet
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent3());
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent4());
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent6());//article template
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent7());//banner template
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponentSSO());//SSO template
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent8());//custom table template
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent9());//video snippets tempalte related to searchassist template
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent10());//check list tempalte
+chatWindowInstance.templateManager.installTemplate(new customTemplateComponent11());//worknotes tempalte
+
+        //show chatwindow
+				
+		
+		chatConfig.branding.welcome_screen.starter_box.quick_start_buttons.action.value="Hi";
+		//chatConfig.branding.welcome_screen.title.name="Hi";//Welcomescreen.title.name 
+				chatConfig.branding.welcome_screen.sub_title.name="Welcome to Kore.ai";//Welcomescreen.title.name 
+						chatConfig.branding.welcome_screen.note.name="Our Community is ready to help you to join our best platform";
+				//chatConfig.branding.welcome_screen.logo.logo_url="https://platform.kore.ai/assets/websdkthemes/kore.png";
+				chatConfig.branding.welcome_screen.logo.logo_url="https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg";
+		chatConfig.branding.header.icon.icon_url="https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg";
+				chatConfig.branding.body.agent_message.icon.icon_url="https://platform.kore.ai/assets/websdkthemes/agent.jpg";
+		chatConfig.branding.body.agent_message.sub_title.name="Agent Service";
+		chatConfig.branding.welcome_screen.promotional_content.promotions[0].banner='https://platform.kore.ai/assets/websdkthemes/kore_banner.png';
+  
+//chatConfig.branding.chat_bubble.proactive.header="Hello {{userName}}";
+
+chatConfig.branding.chat_bubble.proactive.header="Hello there";
+
+chatConfig.branding.chat_bubble.proactive.messages[0].title="Welcome to support";
+
+		//chatConfig.branding.chat_bubble.proactive.messages[1].title=""; 
+		chatConfig.branding.chat_bubble.proactive.messages[1].title=""; 
+		
+        chatConfig.loadHistory=lh;
+		
+//chatConfig.isSendButton= true;
+		chatConfig.isPlatform=true;
+		chatConfig.UIContext.userName='Laurence';
+        chatWindowInstance.installPlugin(new AgentDeskTopPlugin());
+		chatWindowInstance.installPlugin(new BrowserTTSPlugin());
+		   
+		const options = {
+                'lang': "en-US"
+        };
+				
+        chatWindowInstance.installPlugin(new WebKitSTTPlugin(options));
+chatWindowInstance.installPlugin(new KoreMultiFileUploaderPlugin())
+ //skip second window open direct chatwindow after click send msg
+
+   chatConfig.branding.welcome_screen.show = true;
+ //open chatwindow direct without send button click
+chatWindowInstance.show(chatConfig);
+
+</script> 
+</body>
+
+</html>
+
+
+ 
+  <style>
+.kr-button-primary{
+	background: #da0010;
+	border: 1px solid #da0010 !important;
+	color:#fff !important;
+}
+.chat-widget-header .info-content-data .content-text h2 {
+color: #fff !important;
+color:#fff !important;
+}
+
+.chat-widget-header .info-content-data .content-text h1 {
+color: #fff !important;
+color:#fff !important;
+}
+.avatar-variations-footer .avatar-actions .content-info .text-content h4 {
+	color:#fff !important;
+}
+.avatar-variations-footer .avatar-actions .content-info .text-content .help-text-content {
+	color:#fff !important;
+	
+}
+.avatar-variations-footer .avatar-actions .content-info .text-content {
+	background: #da0010;
+}
+.avatar-variations-footer .avatar-actions .avatar-bg .default-avater-icon svg path {
+    fill: #fff !important;
+}
+
+.chat-widget-header .actions-info .btn-action svg path {
+    fill: #fff !important;
+}
+.chat-widget-header .back-to-chat svg path {
+    stroke: #fff !important;
+}
+.chat-widget-header .actions-info .btn-action.btn-reconnect path {
+    fill: none;
+    stroke: #fff !important;
+	fill-opacity: 0 !important;
+}
+
+
+
+.welcome-chat-section .welcome-header .welcome-header-bg{
+	background: #da0010 !important;
+	color:#fff !important;
+}
+.start-conversations-wrapper .start-conv-sec .start-conv-button{
+		background: #da0010 !important;
+		color:#fff !important;
+}
+.avatar-variations-footer .avatar-actions .content-info .buttons-triger-click-wrapper .primary-button{
+	background: #da0010 !important;
+	color:#fff !important;
+}
+.avatar-variations-footer .avatar-actions .avatar-bg{
+	background: #da0010 !important;
+	color:#fff !important;
+}
+
+.start-conversations-wrapper .start-conv-sec .conv-starter-box .bot_icon, .start-conversations-wrapper .start-conv-sec .conv-starter-box .bot_icon_image{
+	background: #da0010 !important;
+	color:#fff !important;
+	
+}
+.start-conversations-wrapper .start-conv-sec .start-conv-button{
+	border: 1px solid #da0010 !important;
+	color:#fff !important;
+	    
+}
+
+</style>
+
+ 
+
+<style>
+.chat-widget-header {
+	background: #da0010;
+	color:#fff !important;
+}
+.agent-bubble-comp .agent-bubble-content .bubble-msg-with-img .bubble-msg{
+	background: #da0010;
+	color:#fff !important;
+}
+.chat-widget-header .info-content-data .bot_icon {
+    background-image: url('https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg') !important;
+    background-size: cover !important;
+}
+
+
+
+
+
+
+.chat-widget-header .info-content-data .bot_icon
+{
+    padding: 16px !important;
+	background: none;
+}
+</style>
+<style>
+.bot-bubble-comp .bot-bubble-content .bubble-msg-with-img .bot-img {
+    background: url("https://demo.kore.ai/demo/bot/botguide/Square-1200x1200px.jpg") !important;
+    background-size: cover !important;
+}
+.bot-bubble-comp .bot-bubble-content .bubble-msg-with-img .bot-img figure {
+	display:none !important;
+}
+</style>
+
+

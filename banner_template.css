@@ -1,0 +1,73 @@
+.bannerTemplate_wrapper {
+  position: relative;
+}
+
+.bannerTemplate_wrapper img, .bannerTemplate_wrapper video {
+  width: 100%;
+}
+
+.bannerTemplate_wrapper .bannerTemplate_content {
+  text-align: left;
+  padding: 6px;
+  margin: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  zoom: 1.25;
+}
+
+.bannerTemplate_wrapper .bannerTemplate_content .bannerTemplate_header {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  max-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bannerTemplate_wrapper .bannerTemplate_content .bannerTemplate_text {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  max-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bannerTemplate_buttons {
+  display: flex;
+  padding: 12px 12px;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bannerTemplate_buttons button {
+    background: white;
+    color: var(--custom_color);
+    border-radius: 4px;
+    padding: 5px 16px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s all ease;
+    border: 1px solid var(--custom_color) ;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    min-width: calc(50% - 6px);
+}
+
+.bannerTemplate_buttons button:hover {
+    background: var(--custom_color);
+    color: white;
+}
